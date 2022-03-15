@@ -1,4 +1,8 @@
-# stimulus-accordion
+# Forked js library
+
+Forked in order to do this: https://github.com/kanety/stimulus-accordion/pull/1
+
+# stimulus-accordion (original README)
 
 A stimulus controller for simple accordion menu.
 
