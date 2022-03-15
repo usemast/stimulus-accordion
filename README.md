@@ -1,6 +1,15 @@
-# Forked js library
+# Mast-specific README:
 
 Forked in order to do this: https://github.com/kanety/stimulus-accordion/pull/1
+
+## Tips for updating the fork
+
+First, rebase our fork on the latest stable version.
+
+If you update this fork you'll need to remember two things to make sure your project is actually using it:
+
+- Run `npm run build` in this repo and include the resulting builds in your update.
+- Update the commit sha in the other project's package.json to point to the one you want to use (if you are using the commit-sha way of specifying the version).
 
 # stimulus-accordion (original README)
 
