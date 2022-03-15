@@ -22,6 +22,8 @@ export default class extends Controller {
   }
 
   connect() {
+    'Using the Mast version of stimulus-accordion'
+    
     this.enableTrans(false);
 
     this.init();
