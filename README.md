@@ -2,6 +2,8 @@
 
 Forked in order to do this: https://github.com/kanety/stimulus-accordion/pull/1
 
+Since then I've also changed the behavior (and tests) so that toggling one section open does not automatically close the others, unless you set `data-accordion-autoclose-param='on'` in the containing div.
+
 ## Tips for updating the fork
 
 First, rebase our fork on the latest stable version.
