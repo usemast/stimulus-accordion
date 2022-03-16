@@ -22,7 +22,7 @@ describe('basic', () => {
     jest.runAllTimers();
   });
 
-  it('toggles display', () => {
+  it('toggles only the clicked section without affecting other sections', () => {
     $('a[href="#content1"]').click();
     expect($('a[href="#content1"]').matches('.st-accordion__icon--opened')).toEqual(true);
     expect($('[data-accordion-id="content1"]').matches('.st-accordion__content--visible')).toEqual(true);
@@ -30,9 +30,21 @@ describe('basic', () => {
     expect($('[data-accordion-id="content2"]').matches('.st-accordion__content--visible')).toEqual(false);
 
     $('a[href="#content2"]').click();
+    expect($('a[href="#content1"]').matches('.st-accordion__icon--opened')).toEqual(true);
+    expect($('[data-accordion-id="content1"]').matches('.st-accordion__content--visible')).toEqual(true);
+    expect($('a[href="#content2"]').matches('.st-accordion__icon--opened')).toEqual(true);
+    expect($('[data-accordion-id="content2"]').matches('.st-accordion__content--visible')).toEqual(true);
+
+    $('a[href="#content1"]').click();
     expect($('a[href="#content1"]').matches('.st-accordion__icon--opened')).toEqual(false);
     expect($('[data-accordion-id="content1"]').matches('.st-accordion__content--visible')).toEqual(false);
     expect($('a[href="#content2"]').matches('.st-accordion__icon--opened')).toEqual(true);
     expect($('[data-accordion-id="content2"]').matches('.st-accordion__content--visible')).toEqual(true);
+
+    $('a[href="#content2"]').click();
+    expect($('a[href="#content1"]').matches('.st-accordion__icon--opened')).toEqual(false);
+    expect($('[data-accordion-id="content1"]').matches('.st-accordion__content--visible')).toEqual(false);
+    expect($('a[href="#content2"]').matches('.st-accordion__icon--opened')).toEqual(false);
+    expect($('[data-accordion-id="content2"]').matches('.st-accordion__content--visible')).toEqual(false);
   });
 });

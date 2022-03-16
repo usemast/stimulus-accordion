@@ -62,8 +62,6 @@ export default class extends Controller {
         } else {
           this.open(toggler);
         }
-      } else if (this.isOpened(toggler)) {
-        this.close(toggler);
       }
     });
 
