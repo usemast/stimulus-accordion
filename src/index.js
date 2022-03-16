@@ -21,6 +21,10 @@ export default class extends Controller {
     return this.scope.findAllElements('[data-accordion-id]')
   }
 
+  get autocloseOn() {
+    return this.scope.element.dataset.accordionAutocloseParam === 'on'
+  }
+
   connect() {
     'Using the Mast version of stimulus-accordion'
     
@@ -62,6 +66,8 @@ export default class extends Controller {
         } else {
           this.open(toggler);
         }
+      } else if (this.autocloseOn && this.isOpened(toggler)) {
+        this.close(toggler);
       }
     });
 
